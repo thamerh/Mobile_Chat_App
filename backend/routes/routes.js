@@ -2,7 +2,7 @@ import express from "express";
 import Protect from "../middleware/Authorization.js";
 import {createMoniteur,Login,moniteur,updateMoniteur,deleteMoniteur,singleMoniteur,moniteurCondidatId} from "../controllers/moniteur.js"
 import {createCandidat,condidat,singleCondidat,updateCandidat,deleteCandidat,condidatUserChat} from "../controllers/condidat.js"
-import {CreateChat,GetChats,GetRoomMessage,AddMessage,GetChatsCondidat,GetChatsMoniteur,DeleteMessage,DeleteChatRoom,GetChat} from "../controllers/Chat.js"
+import {CreateChat,GetChats,GetRoomMessage,AddMessage,GetNotification,DeleteMessage,DeleteChatRoom,GetChat,updateMessage} from "../controllers/Chat.js"
 
 const router=express.Router()
 // moniteur routes
@@ -43,6 +43,10 @@ router.delete('/api/chat/:id',DeleteChatRoom)
 router.get('/api/condidatMoniteur/:id',condidatUserChat)
 router.get('/api/chat/:role/:id',GetChat)
 router.get('/api/moniteurByCondidat/:id',moniteurCondidatId)
+router.get('/api/notification/:id',GetNotification)
+router.put('/api/message/:room/:user',updateMessage)
+
+
 
 
 export default router;
