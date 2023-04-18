@@ -22,6 +22,10 @@ const Message = db.define('message', {
         allowNull: false,
         type: DataTypes.STRING(250),
       },
+      isView: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
       chatRoomId: {
         type: DataTypes.STRING(250),
         allowNull: false,
